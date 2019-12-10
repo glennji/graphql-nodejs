@@ -1,0 +1,38 @@
+
+type User {
+    id: ID!
+    name: String
+    age: Int
+    balance: Float
+    is_active: Boolean
+    friends: [User]!
+}
+type BadgeImage {
+    tiny: String
+    small: String
+    medium: String
+    large: String
+    xlarge: String
+    huge: String
+    nowyourebeingridiculous: String
+}
+type Badge {
+    id: ID!
+    uri: String!
+    img: BadgeImage
+}
+type Achievement {
+    id: ID!
+    uri: String
+    series: String
+    series_index: Int
+    date: String
+    description: String
+    badge: Badge
+}
+type Query {
+    hello: String
+}
+schema {
+    query: Query
+}
