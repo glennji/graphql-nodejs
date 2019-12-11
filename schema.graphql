@@ -1,11 +1,8 @@
-
 type User {
     id: ID!
     name: String
-    age: Int
-    balance: Float
     is_active: Boolean
-    friends: [User]!
+    achievements: [Achievement]
 }
 type BadgeImage {
     tiny: String
@@ -16,22 +13,32 @@ type BadgeImage {
     huge: String
     nowyourebeingridiculous: String
 }
+type Series {
+    id: ID!
+    permalink: String
+    title: String
+    description: String
+}
 type Badge {
     id: ID!
-    uri: String!
+    permalink: String
     img: BadgeImage
+    title: String
+    description: String
+    series: Series
+    series_index: Int
 }
 type Achievement {
-    id: ID!
-    uri: String
-    series: String
-    series_index: Int
+    id: ID
+    permalink: String
     date: String
     description: String
     badge: Badge
 }
 type Query {
     hello: String
+    achievements: [Achievement]
+    achievement(id: String): Achievement
 }
 schema {
     query: Query
